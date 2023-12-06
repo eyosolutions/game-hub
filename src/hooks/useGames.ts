@@ -12,6 +12,7 @@ export interface GameType {
   name: string;
   background_image: string;
   parent_platforms: { platform: PlatformType }[];
+  metacritic: number;
 }
 
 interface GamesResponseType {
