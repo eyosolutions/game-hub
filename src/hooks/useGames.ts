@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
-interface GameType {
+export interface GameType {
   id: number;
   name: string;
+  background_image: string;
 }
 
 interface GamesResponseType {
@@ -12,11 +13,13 @@ interface GamesResponseType {
   results: GameType[];
 }
 
+// Defining a custom state hook
 const useGames = () => {
   const [games, setGames] = useState<GameType[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    // creating a useEffect cleanup function
     const controller = new AbortController();
 
     apiClient
