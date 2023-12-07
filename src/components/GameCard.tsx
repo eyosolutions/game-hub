@@ -1,5 +1,5 @@
 import { Card, CardBody, CardFooter } from "@chakra-ui/card";
-import { GameType } from "../hooks/useGames";
+import { Game } from "../hooks/useGames";
 import { HStack, Heading } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import PlatformIconList from "./PlatformIconList";
@@ -7,7 +7,7 @@ import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 
 interface GameCardProps {
-  game: GameType;
+  game: Game;
 }
 const GameCard = ({ game }: GameCardProps) => {
   return (
