@@ -9,7 +9,9 @@ const ColorModeSwitch = () => {
         isChecked={colorMode === "dark"}
         onChange={toggleColorMode}
       />
-      <Text />
+      <Text style={{ textTransform: "capitalize" }} whiteSpace="nowrap">
+        {`${colorMode} `}mode
+      </Text>
     </HStack>
   );
 };
