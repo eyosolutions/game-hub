@@ -17,6 +17,7 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: PlatformType }[];
   metacritic: number;
+  rating_top: number;
 }
 
 // Defining a custom state hook for games endpoint
