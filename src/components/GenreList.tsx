@@ -1,4 +1,4 @@
-import { HStack, List, ListItem, Text } from "@chakra-ui/layout";
+import { HStack, Heading, List, ListItem, Text } from "@chakra-ui/layout";
 import useGenres, { Genre } from "../hooks/useGenres";
 import { Image } from "@chakra-ui/image";
 import getCroppedImageUrl from "../services/image-url";
@@ -19,39 +19,45 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: GenreListProps) => {
   if (error) return null;
 
   return (
-    <List>
-      {isLoading &&
-        skeletons.map((skeleton) => (
-          <ListItem key={skeleton}>
+    <>
+      <Heading fontSize="2xl" marginY={5}>
+        Genres
+      </Heading>
+      <List>
+        {isLoading &&
+          skeletons.map((skeleton) => (
+            <ListItem key={skeleton}>
+              <HStack paddingY="5px">
+                <Skeleton width="32px" height="32px" borderRadius={8} />
+                <Skeleton width="100px" height={4} borderRadius={3} />
+              </HStack>
+            </ListItem>
+          ))}
+        {genres.map((genre) => (
+          <ListItem key={genre.id}>
             <HStack paddingY="5px">
-              <Skeleton width="32px" height="32px" borderRadius={8} />
-              <Skeleton width="100px" height={4} borderRadius={3} />
-            </HStack>
-          </ListItem>
-        ))}
-      {genres.map((genre) => (
-        <ListItem key={genre.id}>
-          <HStack paddingY="5px">
-            <Image
-              src={getCroppedImageUrl(genre.image_background)}
-              boxSize="32px"
-              borderRadius={8}
-            />
-            {/* <Text noOfLines={1}> */}
-            <Text noOfLines={1}>
+              <Image
+                src={getCroppedImageUrl(genre.image_background)}
+                boxSize="32px"
+                borderRadius={8}
+                objectFit="cover"
+              />
+              {/* <Text noOfLines={1}> */}
               <Button
                 fontSize="lg"
                 variant="link"
+                whiteSpace="normal"
+                textAlign="left"
                 fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                 onClick={() => onSelectedGenre(genre)}
               >
                 {genre.name}
               </Button>
-            </Text>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 };
 
