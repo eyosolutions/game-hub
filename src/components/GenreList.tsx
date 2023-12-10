@@ -1,9 +1,9 @@
-import { HStack, Heading, List, ListItem, Text } from "@chakra-ui/layout";
+import { HStack, Heading, List, ListItem } from "@chakra-ui/layout";
 import useGenres, { Genre } from "../hooks/useGenres";
 import { Image } from "@chakra-ui/image";
 import getCroppedImageUrl from "../services/image-url";
-import { Spinner } from "@chakra-ui/spinner";
-import { Skeleton, SkeletonText } from "@chakra-ui/skeleton";
+// import { Spinner } from "@chakra-ui/spinner";
+import { Skeleton } from "@chakra-ui/skeleton";
 import { Button } from "@chakra-ui/button";
 
 interface GenreListProps {
@@ -12,7 +12,7 @@ interface GenreListProps {
 }
 
 const GenreList = ({ selectedGenre, onSelectedGenre }: GenreListProps) => {
-  const { data: genres, isLoading, error } = useGenres();
+  const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   // if (isLoading) return <Spinner />; // using spinner for loading
@@ -33,7 +33,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: GenreListProps) => {
               </HStack>
             </ListItem>
           ))}
-        {genres.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id}>
             <HStack paddingY="5px">
               <Image
