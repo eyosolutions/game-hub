@@ -1,12 +1,15 @@
 import platforms from "../data/platforms";
 import { useQuery } from "@tanstack/react-query";
-import apiClient, { FetchResponse } from "../services/api-client";
+import { FetchResponse } from "../services/api-client";
+import APIClient from "../services/api-client";
 
 export interface Platform {
   id: number;
   name: string;
   slug: string;
 }
+
+const apiClient = new APIClient<Platform>("/platforms/lists/parents");
 
 // Defining a custom state hook to get platforms from API
 // const usePlatforms = () => useData<Platform>("/platforms/lists/parents");
@@ -15,10 +18,7 @@ export interface Platform {
 const usePlatforms = () =>
   useQuery({
     queryKey: ["platforms"],
-    queryFn: () =>
-      apiClient
-        .get<FetchResponse<Platform>>("/platforms/lists/parents")
-        .then((res) => res.data),
+    queryFn: apiClient.get,
     staleTime: 24 * 60 * 1000, // 24hrs
     initialData: { count: platforms.length, results: platforms },
   });
