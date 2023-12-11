@@ -8,10 +8,10 @@ import { Button } from "@chakra-ui/button";
 
 interface GenreListProps {
   onSelectedGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ selectedGenre, onSelectedGenre }: GenreListProps) => {
+const GenreList = ({ selectedGenreId, onSelectedGenre }: GenreListProps) => {
   const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -48,7 +48,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: GenreListProps) => {
                 variant="link"
                 whiteSpace="normal"
                 textAlign="left"
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
                 onClick={() => onSelectedGenre(genre)}
               >
                 {genre.name}
