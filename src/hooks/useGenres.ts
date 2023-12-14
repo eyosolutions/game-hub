@@ -3,12 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import genres from "../data/genres";
 import ms from "ms";
 import APIClient from "../services/api-client";
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
-
+import { Genre } from "../entities/Genre";
 const apiClient = new APIClient<Genre>("/genres");
 
 // Defining a custom state hook to get genres from API
