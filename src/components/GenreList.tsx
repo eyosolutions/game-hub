@@ -1,19 +1,17 @@
-import { HStack, Heading, List, ListItem } from "@chakra-ui/layout";
-import useGenres, { Genre } from "../hooks/useGenres";
 import { Image } from "@chakra-ui/image";
+import { HStack, Heading, List, ListItem } from "@chakra-ui/layout";
+import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 // import { Spinner } from "@chakra-ui/spinner";
-import { Skeleton } from "@chakra-ui/skeleton";
 import { Button } from "@chakra-ui/button";
+import { Skeleton } from "@chakra-ui/skeleton";
+import useGameQueryStore from "../store";
 
-interface GenreListProps {
-  onSelectedGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
-
-const GenreList = ({ selectedGenreId, onSelectedGenre }: GenreListProps) => {
+const GenreList = () => {
   const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
 
   // if (isLoading) return <Spinner />; // using spinner for loading
   if (error) return null;
@@ -49,7 +47,7 @@ const GenreList = ({ selectedGenreId, onSelectedGenre }: GenreListProps) => {
                 whiteSpace="normal"
                 textAlign="left"
                 fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
-                onClick={() => onSelectedGenre(genre)}
+                onClick={() => setSelectedGenreId(genre.id)}
               >
                 {genre.name}
               </Button>
