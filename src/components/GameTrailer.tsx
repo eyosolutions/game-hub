@@ -14,15 +14,13 @@ const GameTrailer = ({ gameId }: Props) => {
 
   const firstTrailer = data?.results[0];
 
-  if (!firstTrailer) return null;
-
-  return (
+  return firstTrailer ? (
     <video
       src={firstTrailer.data[480]}
       poster={firstTrailer.preview}
       controls
     />
-  );
+  ) : null;
 };
 
 export default GameTrailer;
