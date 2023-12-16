@@ -4,6 +4,7 @@ import GameHeading from "../components/GameHeading";
 import GenreList from "../components/GenreList";
 import PlatformSelector from "../components/PlatformSelector";
 import SortSelector from "../components/SortSelector";
+import GenreSelector from "../components/GenreSelector";
 
 const HomePage = () => {
   return (
@@ -25,7 +26,10 @@ const HomePage = () => {
       <GridItem area="main">
         <Box marginX={5}>
           <GameHeading />
-          <Flex marginY={5} gap={3}>
+          <Flex marginY={5} gap={3} flexWrap="wrap">
+            <Show below="md">
+              <GenreSelector />
+            </Show>
             <PlatformSelector />
             <SortSelector />
           </Flex>
