@@ -12,6 +12,10 @@ const GenreSelector = () => {
   const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
   const selectedGenre = useGenre(selectedGenreId);
 
+  if (isLoading) return null;
+
+  if (error) throw error;
+
   return (
     <div>
       <Menu>

@@ -2,7 +2,6 @@ import { Image } from "@chakra-ui/image";
 import { HStack, Heading, List, ListItem } from "@chakra-ui/layout";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
-// import { Spinner } from "@chakra-ui/spinner";
 import { Button } from "@chakra-ui/button";
 import { Skeleton } from "@chakra-ui/skeleton";
 import useGameQueryStore from "../store";

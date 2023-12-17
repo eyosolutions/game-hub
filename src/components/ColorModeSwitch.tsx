@@ -1,12 +1,4 @@
-import {
-  Flex,
-  HStack,
-  Hide,
-  Show,
-  Switch,
-  Text,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Flex, Hide, Switch, Text, useColorMode } from "@chakra-ui/react";
 
 const ColorModeSwitch = () => {
   const { toggleColorMode, colorMode } = useColorMode();

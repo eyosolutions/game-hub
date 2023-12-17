@@ -13,7 +13,7 @@ const NavBar = () => {
       justifyContent="space-between"
       margin="20px 20px 0px 16px"
     >
-      <Link to="/" style={{ width: "16%" }}>
+      <Link to="/">
         <Image src={logo} boxSize="60px" objectFit="cover" />
       </Link>
       <Flex alignItems="center" gap={3} justifyContent="flex-end" width="84%">
