@@ -12,7 +12,7 @@ import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { Icon } from "@chakra-ui/icon";
 import { IconType } from "react-icons/lib";
-import { Platform } from "../entities/Platform";
+import Platform from "../entities/Platform";
 
 interface PlatformProps {
   platforms: Platform[];

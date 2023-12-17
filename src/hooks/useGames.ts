@@ -1,9 +1,9 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import ms from "ms";
 import APIClient from "../services/api-client";
-import { FetchResponse } from "../entities/FetchResponse";
+import FetchResponse from "../entities/FetchResponse";
 import useGameQueryStore from "../store";
-import { Game } from "../entities/Game";
+import Game from "../entities/Game";
 const apiClient = new APIClient<Game>("/games");
 
 // Defining a custom state hook for games endpoint
