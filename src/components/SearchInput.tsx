@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 import useGameQueryStore from "../store";
 import { useNavigate } from "react-router-dom";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
 const SearchInput = () => {
   const refInput = useRef<HTMLInputElement>(null);
@@ -11,7 +11,7 @@ const SearchInput = () => {
   const navigate = useNavigate();
 
   return (
-    <Box width="70%">
+    <Box width="100%">
       <form
         onSubmit={(e) => {
           e.preventDefault();

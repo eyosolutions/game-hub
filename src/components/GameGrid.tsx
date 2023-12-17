@@ -33,11 +33,7 @@ const GameGrid = () => {
         loader={<Spinner />}
         next={() => fetchNextPage()}
       >
-        <SimpleGrid
-          columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-          padding="10px 20px"
-          spacing={5}
-        >
+        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={5}>
           {isLoading &&
             skeletons.map((skeleton) => (
               <GameCardContainer key={skeleton}>

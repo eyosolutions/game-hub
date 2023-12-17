@@ -19,14 +19,14 @@ const HomePage = () => {
       }}
     >
       <Show above="md">
-        <GridItem area="aside" marginLeft={5}>
+        <GridItem area="aside">
           <GenreList />
         </GridItem>
       </Show>
       <GridItem area="main">
-        <Box marginX={5}>
+        <Box>
           <GameHeading />
-          <Flex marginY={5} gap={3} flexWrap="wrap">
+          <Flex marginY={5} gap={2} flexWrap="wrap">
             <Show below="md">
               <GenreSelector />
             </Show>

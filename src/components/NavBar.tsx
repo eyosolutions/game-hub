@@ -7,12 +7,19 @@ import { Flex } from "@chakra-ui/layout";
 
 const NavBar = () => {
   return (
-    <Flex alignItems="center" justifyContent="space-between" gap={3} margin={5}>
-      <Link to="/">
+    <Flex
+      alignItems="center"
+      gap={2}
+      justifyContent="space-between"
+      margin="20px 20px 0px 16px"
+    >
+      <Link to="/" style={{ width: "16%" }}>
         <Image src={logo} boxSize="60px" objectFit="cover" />
       </Link>
-      <SearchInput />
-      <ColorModeSwitch />
+      <Flex alignItems="center" gap={3} justifyContent="flex-end" width="84%">
+        <SearchInput />
+        <ColorModeSwitch />
+      </Flex>
     </Flex>
   );
 };
